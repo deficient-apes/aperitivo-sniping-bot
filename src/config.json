@@ -1,0 +1,130 @@
+{
+    "Ethereum": {
+        "token": "ETH",
+        "networks": {
+            "goerli": {
+                "json_rpc_url": "https://rpc.ankr.com/eth_goerli",
+                "wrapped_contract": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+                "routers_v2": {
+                    "UNISWAP": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+                },
+                "contracts": {
+                    "UNI": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+                    "WETH": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
+                },
+                "wallets": {
+                    "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
+                },
+                "gas": {
+                    "limit": 250000
+                }
+            }
+        }
+    },
+    "BSC": {
+        "token": "BNB",
+        "networks": {
+            "mainnet": {
+                "json_rpc_url": "https://bsc-dataseed.binance.org/",
+                "wrapped_contract": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+                "routers_v2": {
+                    "PANCAKE": "0x10ED43C718714eb63d5aA57B78B54704E256024E"
+                },
+                "contracts": {
+                    "CAKE": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+                    "WBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
+                },
+                "wallets": {
+                    "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
+                },
+                "gas": {
+                    "limit": 250000
+                }
+            },
+            "testnet": {
+                "json_rpc_url": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+                "wrapped_contract": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+                "routers_v2": {
+                    "PANCAKE": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+                    "TPANCAKE": "0xD99D1c33F9fC3444f8101754aBC46c52416550D1"
+                },
+                "contracts": {
+                    "TCAKE": "0xF9f93cF501BFaDB6494589Cb4b4C15dE49E85D0e",
+                    "WtBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+                    "WBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
+                },
+                "wallets": {
+                    "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
+                },
+                "gas": {
+                    "limit": 250000
+                }
+            }
+        }
+
+
+        
+    },
+    "Cronos": {
+        "token": "CRO",
+        "networks": {
+            "testnet": {
+                "json_rpc_url": "https://evm-t3.cronos.org",
+                "wrapped_contract": "0xDd7FBd7e655DE4B8eccb2B3254F6B69B569F0A9a",
+                "routers_v2": {
+                    "TCROWFI": "0x90e77a81BB5939c7886912461587C504a450f391",
+                    "TCRONA": "0x989dbb40f0b8a431e9d79dfd28fdc3df3717d9c0"
+                },
+                "contracts": {
+                    "CROW": "0x852c75bd104b928BBF54e6Ab94F274B9F8Fa6536",
+                    "THNDR": "0xE71D72436F290Cd98CC29c9EF0E15C88Ce57B359",
+                    "WCRO": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+                    "WTCRO": "0xDd7FBd7e655DE4B8eccb2B3254F6B69B569F0A9a",
+                    "CRONA": "0x306A80D1A90320869fC62F676cc3369DF059E6F8"
+            
+                },
+                "wallets": {
+                    "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
+                },
+                "factories": {
+                    "TCROWFI": "0xDc0e504Ca2b90fA08a7d45Ff6F08d7ce33DDcc9d",
+                    "TCRONA": "0x004615D9cCab58bDE10877BE03F053c94599F3ce"
+                },
+                "gas": {
+                    "limit": 250000
+                }
+            } ,
+            "mainnet": {
+                "json_rpc_url": "https://evm.cronos.org",
+                "wrapped_contract": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+                "routers_v2": {
+                    "MMF": "0x145677FC4d9b8F19B5D56d1820c48e0443049a30",
+                    "TCROWFI": "0x90e77a81BB5939c7886912461587C504a450f391",
+                    "TCRONA": "0x989dbb40f0b8a431e9d79dfd28fdc3df3717d9c0"
+                },
+                "contracts": {
+                    "MMF": "0x97749c9B61F878a880DfE312d2594AE07AEd7656",
+                    "MSHARE": "0xf8b9facB7B4410F5703Eb29093302f2933D6E1Aa",
+                    "CROW": "0x852c75bd104b928BBF54e6Ab94F274B9F8Fa6536",
+                    "THNDR": "0xE71D72436F290Cd98CC29c9EF0E15C88Ce57B359",
+                    "WCRO": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+                    "WTCRO": "0xDd7FBd7e655DE4B8eccb2B3254F6B69B569F0A9a",
+                    "CRONA": "0x306A80D1A90320869fC62F676cc3369DF059E6F8",
+                    "USDC": "0xDba521aD7B3d84c417a224f2830B9399d7180076"
+            
+                },
+                "wallets": {
+                    "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
+                },
+                "factories": {
+                    "TCROWFI": "0xDc0e504Ca2b90fA08a7d45Ff6F08d7ce33DDcc9d",
+                    "TCRONA": "0x004615D9cCab58bDE10877BE03F053c94599F3ce",
+                    "VVS": "0x3b44b2a187a7b3824131f8db5a74194d0a42fc15"
+                },
+                "gas": {
+                    "limit": 250000
+                }
+            }
+        }
+    }
+}
