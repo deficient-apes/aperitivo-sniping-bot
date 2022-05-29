@@ -8,6 +8,9 @@ Aperitivo has been tested a lot against different chains, and the first release 
 
 But the software is distributed AS IS without warranty, use it at your own risk and DO YOUR OWN RESEARCH before using it.
 
+**YOU COULD LOSE REAL TOKENS**
+
+Please read [LICENSE.md](LICENSE.md)
 
 ## Prerequisites
 
@@ -17,7 +20,7 @@ The software should run on any recent Windows, Linux or MacOs machine armed with
 
 Once you download clone the repository, installing node modules with npm or yarn will be enough to start.
 
-    npm -i
+    npm install
     
 now it's time to review the configuration
 
@@ -54,6 +57,37 @@ You will be asked for your wallet mnemonic, as you can see from the code it's no
 
     WALLET_MNEMONIC="your precious 12 words"
 
+### Options
+Valid values are the one configured in [src/config.json](src/config.json).
+
+### Required:
+
+  `--chain` Specify the chain on which you are going to operate (eg. BSC). 
+  
+  `--network` Choose the network on which you are going to operate (eg. testnet, mainnet). That will automatically determine json rpc url from [src/config.json](src/config.json)
+  
+  `--router` Choose the dex router on which you are going to operate (eg. PANCAKE)
+  
+  `--target_wallet` Choose the wallet on which you are going to operate (eg. mywallet1)
+  
+  `--amount` Choose the amount (in token units, **NOT** wei - eg. 42)
+  
+  `--from_token` Choose the token you want to swap to obtain --to_token (eg. WBNB)
+  
+  `--through_token` Choose the token you want to swap as an intermediate step to obtain --to_token (eg. BUSD)
+  
+  `--to_token` Choose the token you want to obtain from the swap (eg. CAKE)
+  
+  `--slippage` slippage percentage (eg. with 1% you are going to accept up to 99% of the --to_token value in USD)
+
+### Optional:
+
+  `--wrap_before_swap` wrap the specified amount of native token before the swap. You will need the same amount of native token (eg. --wrap_before_swap 10 on BSC will wrap 10 BNB, obtaining 10 WBNB before the swap)
+  
+  `--auto_approve` approve the given amount of --from_token before swapping (eg. --from_token WBNB --auto_approve 10 will approve 10 WBNB before swapping. Is there's already enough allowance, the step will be skipped)
+  
+  `--autoconfirm` skip the confirmation prompt and proceed to buy tokens without your confirmation (you degen!)
+  
 ## Please donate!
 If you like this bot, please consider to donate! We accept BNB, ETH, CRO or whatever else is ERC-20 compatible:
     
