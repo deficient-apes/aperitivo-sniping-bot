@@ -10,7 +10,7 @@ const { EventEmitter } = require("events");
 function init(mnemonic, args) {
   const em = new EventEmitter();
 
-  let rawdata = fs.readFileSync("config.json");
+  let rawdata = fs.readFileSync(__dirname + "/config.json");
   let map = JSON.parse(rawdata);
   const configProvider = new ConfigProvider(map, args.chain, args.network);
 
