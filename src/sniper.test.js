@@ -190,7 +190,9 @@ test("test snipe from tokens", async () => {
     expect.anything()
   );
   expect(beforeSniping).toHaveBeenCalledTimes(1);
-  spies.map((spy) => {spy.mockRestore()});
+  spies.map((spy) => {
+    spy.mockRestore();
+  });
 });
 
 test("test snipe from tokens not enough balance", async () => {
@@ -355,30 +357,34 @@ test("test snipe from tokens with approval and enough allowance", async () => {
   const { sniper, pathContracts, router, deadline, em, beforeSniping } =
     initSniper();
 
-    const spies = setSpies([
-      ...happyPathSpies,
-      {
-        spyOn: router,
-        method: "getAllowance",
-        implementations: [() => Promise.resolve(BigNumber.from(10))],
-      },
-      {
-        spyOn: ethers.utils,
-        method: "parseUnits",
-        implementations: [(amount, decimals) => "10", (amount, decimals) => "10", (amount, decimals) => "10"],
-      },
-      {
-        spyOn: ethers.utils,
-        method: "formatUnits",
-        implementations: [
-          (amount, decimals) => "11",
-          (amount, decimals) => "10",
-          (amount, decimals) => "100",
-          (amount, decimals) => "10",
-          (amount, decimals) => "100",
-        ],
-      },
-    ]);
+  const spies = setSpies([
+    ...happyPathSpies,
+    {
+      spyOn: router,
+      method: "getAllowance",
+      implementations: [() => Promise.resolve(BigNumber.from(10))],
+    },
+    {
+      spyOn: ethers.utils,
+      method: "parseUnits",
+      implementations: [
+        (amount, decimals) => "10",
+        (amount, decimals) => "10",
+        (amount, decimals) => "10",
+      ],
+    },
+    {
+      spyOn: ethers.utils,
+      method: "formatUnits",
+      implementations: [
+        (amount, decimals) => "11",
+        (amount, decimals) => "10",
+        (amount, decimals) => "100",
+        (amount, decimals) => "10",
+        (amount, decimals) => "100",
+      ],
+    },
+  ]);
 
   await sniper.snipe(10, 10);
 
@@ -433,31 +439,35 @@ test("test snipe from tokens with approval and not enough allowance", async () =
   const { sniper, pathContracts, router, deadline, em, beforeSniping } =
     initSniper();
 
-    const spies = setSpies([
-      ...happyPathSpies,
-      {
-        spyOn: router,
-        method: "getAllowance",
-        implementations: [() => Promise.resolve(BigNumber.from(0))],
-      },
-      {
-        spyOn: ethers.utils,
-        method: "parseUnits",
-        implementations: [(amount, decimals) => BigNumber.from("10"), (amount, decimals) => BigNumber.from("10"), (amount, decimals) => BigNumber.from("10")],
-      },
-      {
-        spyOn: ethers.utils,
-        method: "formatUnits",
-        implementations: [
-          (amount, decimals) => "11",
-          (amount, decimals) => "10",
-          (amount, decimals) => "10",
-          (amount, decimals) => "100",
-          (amount, decimals) => "10",
-          (amount, decimals) => "100",
-        ],
-      },
-    ]);
+  const spies = setSpies([
+    ...happyPathSpies,
+    {
+      spyOn: router,
+      method: "getAllowance",
+      implementations: [() => Promise.resolve(BigNumber.from(0))],
+    },
+    {
+      spyOn: ethers.utils,
+      method: "parseUnits",
+      implementations: [
+        (amount, decimals) => BigNumber.from("10"),
+        (amount, decimals) => BigNumber.from("10"),
+        (amount, decimals) => BigNumber.from("10"),
+      ],
+    },
+    {
+      spyOn: ethers.utils,
+      method: "formatUnits",
+      implementations: [
+        (amount, decimals) => "11",
+        (amount, decimals) => "10",
+        (amount, decimals) => "10",
+        (amount, decimals) => "100",
+        (amount, decimals) => "10",
+        (amount, decimals) => "100",
+      ],
+    },
+  ]);
 
   await sniper.snipe(10, 10);
 
@@ -494,14 +504,14 @@ test("test snipe from tokens with approval and not enough allowance", async () =
     amount: "10",
     symbol: "SVN",
   });
-  
+
   expect(em.emit).toHaveBeenNthCalledWith(
     6,
     "AmountOutMinEstimationCompleted",
     { amount: "100", symbol: "MMF" },
     expect.anything()
   );
-  
+
   expect(em.emit).toHaveBeenNthCalledWith(7, "SwapStarted", {
     amountIn: "10",
     amountOutMin: "100",

@@ -31,11 +31,15 @@ class ConfigProvider {
   }
 
   getWrappedContract() {
-    return this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][CHAIN_WRAPPED_CONTRACT_KEY];
+    return this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][
+      CHAIN_WRAPPED_CONTRACT_KEY
+    ];
   }
 
   getJsonRpcUrl() {
-    return this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][CHAIN_JSON_RPC_URL_KEY];
+    return this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][
+      CHAIN_JSON_RPC_URL_KEY
+    ];
   }
 
   isNativeToken(token) {

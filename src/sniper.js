@@ -35,32 +35,37 @@ class Sniper {
     });
 
     const amountIn = this.ethers.utils.parseUnits(String(amount), fromDecimals);
-    
-    const toApprove = autoApprove > 0 ? this.ethers.utils.parseUnits(
-      String(autoApprove),
-      fromDecimals
-    ) : BigNumber.from(0);
 
-    let balance = await this.router.getBalance(this.pathContracts[0].getAddress());
+    const toApprove =
+      autoApprove > 0
+        ? this.ethers.utils.parseUnits(String(autoApprove), fromDecimals)
+        : BigNumber.from(0);
+
+    let balance = await this.router.getBalance(
+      this.pathContracts[0].getAddress()
+    );
     let formattedBalance = this.ethers.utils.formatUnits(balance, fromDecimals);
     this.eventEmitter.emit("BalanceFetched", {
       balance: formattedBalance,
       symbol,
     });
 
-    if(balance.lt(amountIn)) {
+    if (balance.lt(amountIn)) {
       this.eventEmitter.emit("NotEnoughBalance", {
         balance: formattedBalance,
         requiredAmount: this.ethers.utils.formatUnits(amountIn, fromDecimals),
         symbol,
       });
 
-      throw new Error('Not Enough Balance');
+      throw new Error("Not Enough Balance");
     }
-    
+
     if (allowance.lt(amountIn)) {
       if (autoApprove > 0 && toApprove.gte(amountIn)) {
-        let formattedAmount = this.ethers.utils.formatUnits(toApprove, fromDecimals);
+        let formattedAmount = this.ethers.utils.formatUnits(
+          toApprove,
+          fromDecimals
+        );
         this.eventEmitter.emit("ApprovalStarted", {
           amount: formattedAmount,
           symbol,
@@ -78,7 +83,7 @@ class Sniper {
           symbol,
         });
 
-        throw new Error('Not Enough Allowance');
+        throw new Error("Not Enough Allowance");
       }
     }
 
@@ -94,7 +99,7 @@ class Sniper {
       fromSymbol,
       toSymbol,
     } = await this.#getFormattedAmounts(amount);
-    
+
     var options = { gasLimit: this.gasLimit }; // in wei
 
     this.eventEmitter.emit("SwapStarted", {
@@ -163,7 +168,7 @@ class Sniper {
     const toDecimals = await this.pathContracts[
       this.pathContracts.length - 1
     ].decimals();
-    
+
     const fromSymbol = await this.pathContracts[0].symbol();
 
     const toSymbol = await this.pathContracts[
@@ -171,13 +176,13 @@ class Sniper {
     ].symbol();
 
     const amountIn = this.ethers.utils.parseUnits(amount, fromDecimals);
-    
+
     const amountOutMin = await this.#getAmountMin(
       amountIn,
       toDecimals,
       toSymbol
     );
-    
+
     return {
       amountIn,
       amountOutMin,

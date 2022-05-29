@@ -62,23 +62,23 @@ class EventHandler {
     });
 
     this.em.on("BalanceFetched", function (data) {
-        log(
-          ch.grey("Balance: ") +
-            ch.blue.bold(data.balance) +
-            " " +
-            ch.grey(data.symbol)
-        );
-      });
+      log(
+        ch.grey("Balance: ") +
+          ch.blue.bold(data.balance) +
+          " " +
+          ch.grey(data.symbol)
+      );
+    });
 
-      this.em.on("NotEnoughBalance", function (data) {
-        log(
-            ch.grey("The transaction requires at least ") +
-              ch.blue.bold(data.requiredAmount) +
-              ch.grey(" "+data.symbol + ", your current balnce is ") +
-              ch.red(data.balance)
-          );
-          process.exit();
-      });
+    this.em.on("NotEnoughBalance", function (data) {
+      log(
+        ch.grey("The transaction requires at least ") +
+          ch.blue.bold(data.requiredAmount) +
+          ch.grey(" " + data.symbol + ", your current balnce is ") +
+          ch.red(data.balance)
+      );
+      process.exit();
+    });
 
     this.em.on("GasEstimationError", function (data) {
       log(

@@ -90,14 +90,10 @@ class Router {
   async getBalance(contract) {
     let balanceContract = new this.ethers.Contract(
       contract,
-      [
-        "function balanceOf(address account) external view returns(uint)",
-      ],
+      ["function balanceOf(address account) external view returns(uint)"],
       this.account
     );
-    return balanceContract.balanceOf(
-      this.wallet.getAddress(),
-    );
+    return balanceContract.balanceOf(this.wallet.getAddress());
   }
 
   async getAllowance(contract) {
