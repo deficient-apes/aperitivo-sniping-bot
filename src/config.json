@@ -45,13 +45,11 @@
                 "json_rpc_url": "https://data-seed-prebsc-1-s1.binance.org:8545/",
                 "wrapped_contract": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
                 "routers_v2": {
-                    "PANCAKE": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
                     "TPANCAKE": "0xD99D1c33F9fC3444f8101754aBC46c52416550D1"
                 },
                 "contracts": {
                     "TCAKE": "0xF9f93cF501BFaDB6494589Cb4b4C15dE49E85D0e",
-                    "WtBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
-                    "WBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
+                    "WtBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
                 },
                 "wallets": {
                     "wallet1": "0x3fBbb88b19EC6953f919569ab9e6A5810DF40810"
