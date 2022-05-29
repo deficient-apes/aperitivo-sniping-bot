@@ -22,8 +22,7 @@ function init(mnemonic, args) {
     provider,
     wallet,
     configProvider.getValue(args.router, "routers_v2"),
-    ethers,
-    configProvider.getValue("WCRO", "contracts")
+    ethers
   );
 
   let fromToken = configProvider.getValue(String(args.from_token), "contracts");

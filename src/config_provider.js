@@ -8,6 +8,14 @@ class ConfigProvider {
     this.map = map;
     this.chain = chain;
     this.network = network;
+
+    if (!map[chain]) {
+      throw new Error("Invalid chain " + chain);
+    }
+
+    if (!map[chain][CHAIN_NETWORKS_KEY][network]) {
+      throw new Error("Invalid network " + network + " under chain " + chain);
+    }
   }
 
   isHex(num) {
@@ -23,6 +31,8 @@ class ConfigProvider {
   }
 
   getValue(key, type) {
+    this.#validateByType(key, type);
+
     return this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][type][key];
   }
 
@@ -44,6 +54,24 @@ class ConfigProvider {
 
   isNativeToken(token) {
     return this.map[this.chain][CHAIN_TOKEN_KEY] === token;
+  }
+
+  #validateByType(key, type) {
+    const validKeys = Object.keys(
+      this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][type]
+    );
+
+    if (
+      !this.map[this.chain][CHAIN_NETWORKS_KEY][this.network][
+        type
+      ].hasOwnProperty(key)
+    ) {
+      throw new Error(
+        "Invalid value for " + type + ", valid values: " + validKeys.join(",")
+      );
+    }
+
+    return true;
   }
 }
 

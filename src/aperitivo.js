@@ -83,8 +83,14 @@ const mnemonic =
   prompt.hide(
     "Input mnemonic (use --mnemonic if you want to pass it through command line):"
   );
+let sniper, router, configProvider, em;
 
-const { sniper, router, configProvider, em } = init(mnemonic, args);
+try {
+  ({ sniper, router, configProvider, em } = init(mnemonic, args));
+} catch (e) {
+  console.log(chalk.red(e.message));
+  process.exit(1);
+}
 
 (async () => {
   if (args.wrap_before_swap) {
