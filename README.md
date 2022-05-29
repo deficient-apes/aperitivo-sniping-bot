@@ -89,7 +89,7 @@ Valid values are the one configured in [src/config.json](src/config.json).
   `--autoconfirm` skip the confirmation prompt and proceed to buy tokens without your confirmation (you degen!)
   
 ## Please donate!
-If you like this bot, please consider to donate! We accept BNB, ETH, CRO or whatever else is ERC-20 compatible:
+If you like this bot, please consider to donate! We accept BNB, ETH, CRO or MATIC:
     
     0x3fBbb88b19EC6953f919569ab9e6A5810DF40810
     
