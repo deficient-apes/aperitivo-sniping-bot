@@ -59,7 +59,7 @@ You will be asked for your wallet mnemonic, as you can see from the code it's no
 
 Why does this BOT need your mnemonic? because it [instantiates the wallet from it](https://github.com/deficient-apes/aperitivo-sniping-bot/blob/main/src/init.js#L17) to trade on your behalf. Why not authorizing the script with metamask? Unfortunately it's not possible to connect the script to Metamask and ask for an authorization because it runs on the command line, thus the only way to operate is instantiating the wallet from the mnemonic.
 
-We are working on a tiny localhost app that could at least address this limitation if you are operating from your local machine (so that the script will ask to open a localhost address during the first execution to ask for authorization to metamask extension in your browser). The limitation will remain in a remote scenario (eg. working from your ec2 or digital ocean instance)
+We are working on a tiny localhost app that could at least address this limitation if you are operating from your local machine (so that the script will ask to open a localhost address during the execution to ask for authorization to metamask extension in your browser). The limitation will remain in a remote scenario (eg. working from your ec2 or digital ocean instance)
 
 ### Options
 Valid values are the one configured in [src/config.json](src/config.json).
