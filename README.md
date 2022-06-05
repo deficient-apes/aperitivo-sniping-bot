@@ -57,7 +57,7 @@ You will be asked for your wallet mnemonic, as you can see from the code it's no
 
     WALLET_MNEMONIC="your precious 12 words"
 
-Why does this BOT need your mnemonic? because it [https://github.com/deficient-apes/aperitivo-sniping-bot/blob/main/src/init.js#L17](instantiates the wallet from it) to trade on your behalf. Why not authorizing the script with metamask? Unfortunately it's not possible to connect the script to Metamask and ask for an authorization because it runs on the command line, thus the only way to operate is instantiating the wallet from the mnemonic.
+Why does this BOT need your mnemonic? because it [instantiates the wallet from it](https://github.com/deficient-apes/aperitivo-sniping-bot/blob/main/src/init.js#L17) to trade on your behalf. Why not authorizing the script with metamask? Unfortunately it's not possible to connect the script to Metamask and ask for an authorization because it runs on the command line, thus the only way to operate is instantiating the wallet from the mnemonic.
 
 ### Options
 Valid values are the one configured in [src/config.json](src/config.json).
